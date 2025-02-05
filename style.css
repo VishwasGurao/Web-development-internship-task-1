@@ -1,0 +1,252 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+    overflow: hidden; /* Prevents scrollbars */
+    position: relative;
+    animation: gradientAnimation 15s ease infinite; /* Animated gradient */
+}
+
+/* Animated Background */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+    50% {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    }
+    100% {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+}
+
+/* Container Styling */
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 600px;
+    color: #333;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    z-index: 10;
+}
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Form Styles */
+#taskForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#taskForm input, #taskForm button {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#taskForm input {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+#taskForm input:focus {
+    border-color: #28a745;
+}
+
+#taskForm button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+}
+
+#taskForm button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Sort Options */
+.sort-options {
+    margin-bottom: 25px;
+}
+
+.sort-options label {
+    font-size: 16px;
+    color: white;
+    margin-right: 10px;
+}
+
+.sort-options select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+}
+
+/* Task List Styles */
+#taskList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#taskList li {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+#taskList li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.task-description {
+    color: #666;
+}
+
+.task-due-date {
+    color: #333;
+    font-style: italic;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Edit Form Styles */
+.edit-form {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.edit-form input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 10px;
+    width: calc(100% - 30px);
+}
+
+.edit-form button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-form button:hover {
+    background-color: #218838;
+}
+
+/* Button Styles */
+.edit-btn, .delete-btn {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background: none;
+    transition: all 0.3s ease;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Particle Effect */
+@keyframes particleAnimation {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-300px); opacity: 0; }
+}
+
+.particle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: particleAnimation 5s infinite;
+    animation-delay: calc(-5s + 5s * random());
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0.3;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Gradient Background Animation */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+    50% {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    }
+    100% {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+}
